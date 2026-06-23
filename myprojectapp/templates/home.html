@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Login</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #6f42c1, #9b6dff);
+        }
+
+        .login-container{
+            width: 380px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .login-container h2{
+            text-align: center;
+            color: #6f42c1;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus{
+            border-color: #6f42c1;
+            box-shadow: 0 0 5px rgba(111,66,193,0.4);
+        }
+
+        button{
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #6f42c1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background: #5a32a3;
+        }
+
+        .error-message{
+            color: red;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-text{
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h2>Fabroses </h2>
+
+        <form method="POST" action="/loginaction/" autocomplete="off">
+
+            {% csrf_token %}
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="x_user_784"
+                placeholder="Enter Username"
+                required
+                readonly
+                onfocus="this.removeAttribute('readonly');"
+>
+
+            <label>Personal ID</label>
+
+            <input
+                type="password"
+                name="personal_id"
+                placeholder="Enter Personal ID"
+                required
+                autocomplete="off"
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        {% if error %}
+
+        <div class="error-message">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+        <div class="footer-text">
+
+            Saree Preorder Management System
+
+        </div>
+
+    </div>
+     <script>
+
+        // Clear all form fields
+
+        window.onload = function() {
+
+            document.querySelector('form').reset();
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Worker</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container{
+            width: 500px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        .header{
+            background: #6f42c1;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1{
+            font-size: 28px;
+        }
+
+        .back-btn{
+            background: white;
+            color: #6f42c1;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn:hover{
+            background: #ece3ff;
+        }
+
+        /* FORM CARD */
+
+        .form-card{
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.08);
+        }
+
+        .form-card h2{
+            color: #6f42c1;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea,
+        select{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        textarea{
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus{
+            border-color: #6f42c1;
+            box-shadow: 0 0 5px rgba(111,66,193,0.4);
+        }
+
+        button{
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #6f42c1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover{
+            background: #5a32a3;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>Admin Dashboard</h1>
+
+        <a href="/admin_dashboard/" class="back-btn">
+            Back
+        </a>
+
+    </div>
+
+    <!-- FORM CARD -->
+
+    <div class="form-card">
+
+        <h2>Add Worker Details</h2>
+
+        <form method="POST" action="/assign_workeraction/">
+
+            {% csrf_token %}
+
+            <label>Worker Name</label>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter worker name"
+                required
+            >
+
+            <label>Phone Number</label>
+
+            <input
+                type="text"
+                name="phone"
+                placeholder="Enter phone number"
+                required
+            >
+
+            <label>Address</label>
+
+            <textarea
+                name="address"
+                placeholder="Enter address"
+            ></textarea>
+
+            <label>Work Type</label>
+
+            <select name="work_type" required>
+
+                <option value="">
+                    Select Work Type
+                </option>
+
+                <option value="Designer">
+                    Designer
+                </option>
+
+                <option value="Tailor">
+                    Tailor
+                </option>
+
+                <option value="Embroidery">
+                    Embroidery
+                </option>
+
+                <option value="Packing">
+                    Packing
+                </option>
+
+            </select>
+
+            <label>Personal ID</label>
+
+            <input
+                type="text"
+                name="personal_id"
+                placeholder="Enter Personal ID"
+                required
+            >
+
+            <label>Salary</label>
+
+            <input
+                type="number"
+                name="salary"
+                placeholder="Enter salary"
+                required
+            >
+
+            <button type="submit">
+                Add Worker
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
