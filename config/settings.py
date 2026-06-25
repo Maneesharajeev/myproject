@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydata',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydata_b7kf',
+        'USER': 'myprojectuser',
+        'PASSWORD': '5XXwe7agBS8kMzhA2J9LayHbsee5mFVj',
+        'HOST': 'dpg-d8ucclr7uimc73e1fu9g-a',
+        'PORT': '5432',
     }
 }
 
