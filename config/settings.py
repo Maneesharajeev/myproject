@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'mydata_b7kf',
         'USER': 'myprojectuser',
         'PASSWORD': '5XXwe7agBS8kMzhA2J9LayHbsee5mFVj',
-        'HOST': 'dpg-d8ucclr7uimc73e1fu9g-a',
+        'HOST': 'dpg-d8ucclr7uimc73e1fu9g-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
@@ -141,7 +141,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Uploads')
 
 import os.path
 
-STATICFILES_DIRS = ((os.path.join( os.path.dirname( __file__ ), 'myprojectapp\static' )),)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'myprojectapp', 'static'),
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_FINDERS =  (
     'django.contrib.staticfiles.finders.FileSystemFinder',
