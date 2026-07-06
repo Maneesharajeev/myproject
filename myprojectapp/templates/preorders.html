@@ -4,137 +4,84 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Preorder Details</title>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
 
         *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
         body{
-            background: #f4f6f9;
-            padding: 30px;
+            background:#f4f6f9;
         }
 
-        .container{
-            width: 95%;
-            margin: auto;
+        .dashboard-header{
+            background:#6f42c1;
+            color:white;
+            border-radius:12px;
         }
-
-        /* HEADER */
-
-        .header{
-            background: #6f42c1;
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1{
-            font-size: 28px;
-        }
-
-        .back-btn{
-            background: white;
-            color: #6f42c1;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .back-btn:hover{
-            background: #ece3ff;
-        }
-
-        /* TABLE CARD */
 
         .table-card{
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.08);
-            overflow-x: auto;
+            background:white;
+            border-radius:12px;
+            box-shadow:0 0 12px rgba(0,0,0,.08);
         }
 
-        .table-card h2{
-            color: #6f42c1;
-            margin-bottom: 20px;
+        .table thead th{
+            background:#6f42c1;
+            color:white;
+            vertical-align:middle;
         }
 
-        table{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        table th{
-            background: #6f42c1;
-            color: white;
-            padding: 14px;
-            text-align: left;
-        }
-
-        table td{
-            padding: 14px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        table tr:nth-child(even){
-            background: #f8f8f8;
-        }
-
-        table tr:hover{
-            background: #f1ebff;
+        .table tbody tr:hover{
+            background:#f1ebff;
         }
 
         .priority-high{
-            color: red;
-            font-weight: bold;
+            color:red;
+            font-weight:bold;
         }
 
         .priority-medium{
-            color: orange;
-            font-weight: bold;
+            color:orange;
+            font-weight:bold;
         }
 
         .priority-low{
-            color: green;
-            font-weight: bold;
+            color:green;
+            font-weight:bold;
         }
 
-        .assign-btn{
-            background: #28a745;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
+        .btn-purple{
+            background:#6f42c1;
+            color:white;
         }
 
-        .assign-btn:hover{
-            background: #218838;
+        .btn-purple:hover{
+            background:#5a32a3;
+            color:white;
         }
 
-        .empty-box{
-            text-align: center;
-            padding: 30px;
-            color: gray;
-            font-size: 18px;
+        .btn-success{
+            font-weight:bold;
+        }
+
+        @media (max-width:576px){
+
+            .dashboard-header h1{
+                font-size:24px;
+            }
+
+            .dashboard-header{
+                text-align:center;
+            }
+
         }
 
     </style>
@@ -143,111 +90,129 @@
 
 <body>
 
-<div class="container">
+<div class="container py-4">
 
-    <!-- HEADER -->
+    <!-- Header -->
 
-    <div class="header">
+    <div class="dashboard-header p-4 mb-4">
 
-        <h1>Admin Dashboard</h1>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
 
-        <a href="/admin_dashboard/" class="back-btn">
-            Back
-        </a>
+            <h1 class="mb-3 mb-md-0">
+                Admin Dashboard
+            </h1>
+
+            <a href="/admin_dashboard/" class="btn btn-light text-primary fw-bold">
+                Back
+            </a>
+
+        </div>
 
     </div>
 
-    <!-- TABLE SECTION -->
+    <!-- Table Card -->
 
-    <div class="table-card">
+    <div class="table-card p-4">
 
-        <h2>Preorder Details</h2>
+        <h2 class="text-primary mb-4">
+            Preorder Details
+        </h2>
 
         {% if data %}
 
-        <table>
+        <div class="table-responsive">
 
-            <tr>
+            <table class="table table-hover align-middle">
 
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Saree</th>
-                <th>Color</th>
-                <th>Quantity</th>
-                <th>Delivery Date</th>
-                <th>Priority</th>
-                <th>Action</th>
+                <thead>
 
-            </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Saree</th>
+                        <th>Color</th>
+                        <th>Quantity</th>
+                        <th>Delivery Date</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
 
-            {% for i in data %}
+                </thead>
 
-            <tr>
+                <tbody>
 
-                <td>{{ i.name }}</td>
+                {% for i in data %}
 
-                <td>{{ i.phone }}</td>
+                    <tr>
 
-                <td>{{ i.email }}</td>
+                        <td>{{ i.name }}</td>
 
-                <td>{{ i.address }}</td>
+                        <td>{{ i.phone }}</td>
 
-                <td>{{ i.saree }}</td>
+                        <td>{{ i.email }}</td>
 
-                <td>{{ i.color }}</td>
+                        <td>{{ i.address }}</td>
 
-                <td>{{ i.quantity }}</td>
+                        <td>{{ i.saree }}</td>
 
-                <td>{{ i.delivery_date }}</td>
+                        <td>{{ i.color }}</td>
 
-                <td>
+                        <td>{{ i.quantity }}</td>
 
-                    {% if i.priority == 'High' %}
+                        <td>{{ i.delivery_date }}</td>
 
-                        <span class="priority-high">
-                            High
-                        </span>
+                        <td>
 
-                    {% elif i.priority == 'Medium' %}
+                            {% if i.priority == 'High' %}
 
-                        <span class="priority-medium">
-                            Medium
-                        </span>
+                                <span class="priority-high">
+                                    High
+                                </span>
 
-                    {% else %}
+                            {% elif i.priority == 'Medium' %}
 
-                        <span class="priority-low">
-                            Low
-                        </span>
+                                <span class="priority-medium">
+                                    Medium
+                                </span>
 
-                    {% endif %}
+                            {% else %}
 
-                </td>
+                                <span class="priority-low">
+                                    Low
+                                </span>
 
-                <td>
+                            {% endif %}
 
-                    <a href="/workers/{{ i.id }}/"
-                       class="assign-btn">
+                        </td>
 
-                        Assign
+                        <td>
 
-                    </a>
+                            <a href="/workers/{{ i.id }}/"
+                               class="btn btn-success btn-sm">
 
-                </td>
+                                Assign
 
-            </tr>
+                            </a>
 
-            {% endfor %}
+                        </td>
 
-        </table>
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
 
         {% else %}
 
-        <div class="empty-box">
+        <div class="text-center text-muted py-5">
 
-            No Preorders Found
+            <h5>No Preorders Found</h5>
 
         </div>
 
@@ -256,6 +221,9 @@
     </div>
 
 </div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

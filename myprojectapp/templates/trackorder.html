@@ -1,213 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Track Orders</title>
-
-    <style>
-
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body{
-            background: #f4f6f9;
-            padding: 30px;
-        }
-
-        .container{
-            width: 95%;
-            margin: auto;
-        }
-
-        /* HEADER */
-
-        .header{
-            background: #6f42c1;
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1{
-            font-size: 28px;
-        }
-
-        .back-btn{
-            background: white;
-            color: #6f42c1;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .back-btn:hover{
-            background: #ece3ff;
-        }
-
-        /* WORKER CARD */
-
-        .worker-card{
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.08);
-        }
-
-        .worker-header{
-            margin-bottom: 20px;
-        }
-
-        .worker-name{
-            color: #6f42c1;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* STATS */
-
-        .stats-container{
-            display: flex;
-            gap: 20px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box{
-            flex: 1;
-            min-width: 180px;
-            background: #f8f8ff;
-            padding: 18px;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 5px solid #6f42c1;
-        }
-
-        .stat-box h3{
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .stat-box p{
-            font-size: 28px;
-            font-weight: bold;
-            color: #6f42c1;
-        }
-
-        /* TABLE */
-
-        table{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        table th{
-            background: #6f42c1;
-            color: white;
-            padding: 14px;
-            text-align: left;
-        }
-
-        table td{
-            padding: 14px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        table tr:nth-child(even){
-            background: #f8f8f8;
-        }
-
-        table tr:hover{
-            background: #f1ebff;
-        }
-
-        /* STATUS */
-
-        .status{
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .pending{
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .inprogress{
-            background: #cce5ff;
-            color: #004085;
-        }
-
-        .completed{
-            background: #d4edda;
-            color: #155724;
-        }
-
-        /* PRIORITY */
-
-        .priority-high{
-            color: red;
-            font-weight: bold;
-        }
-
-        .priority-medium{
-            color: orange;
-            font-weight: bold;
-        }
-
-        .priority-low{
-            color: green;
-            font-weight: bold;
-        }
-
-        .empty-box{
-            text-align: center;
-            padding: 25px;
-            color: gray;
-            font-size: 18px;
-        }
-
-    </style>
-
-</head>
-
 <body>
 
-<div class="container">
+<div class="container py-4">
 
     <!-- HEADER -->
 
-    <div class="header">
+    <div class="bg-primary bg-gradient text-white rounded p-4 mb-4"
+         style="background:#6f42c1 !important;">
 
-        <h1>Track Worker Orders</h1>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
 
-        <a href="/admin_dashboard/"
-           class="back-btn">
+            <h1 class="mb-3 mb-md-0">
+                Track Worker Orders
+            </h1>
 
-            Back
+            <a href="/admin_dashboard/"
+               class="btn btn-light fw-bold text-primary">
 
-        </a>
+                Back
+
+            </a>
+
+        </div>
 
     </div>
 
@@ -215,206 +28,206 @@
 
     {% for worker in workers %}
 
-    <div class="worker-card">
+    <div class="card shadow-sm border-0 mb-4">
 
-        <!-- WORKER HEADER -->
+        <div class="card-body">
 
-        <div class="worker-header">
+            <!-- Worker Name -->
 
-            <div class="worker-name">
+            <h3 class="text-primary fw-bold mb-4"
+                style="color:#6f42c1 !important;">
 
                 {{ worker.name }}
 
+            </h3>
+
+            <!-- Statistics -->
+
+            <div class="row g-3 mb-4">
+
+                <div class="col-12 col-md-4">
+
+                    <a href="/worker_order/{{ worker.id }}/"
+                       class="text-decoration-none">
+
+                        <div class="card h-100 border-start border-5"
+                             style="border-color:#6f42c1 !important;">
+
+                            <div class="card-body text-center">
+
+                                <h6>Total Assigned Orders</h6>
+
+                                <h2 class="fw-bold text-primary">
+
+                                    {{ worker.total_count }}
+
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                <div class="col-12 col-md-4">
+
+                    <a href="/current_order/{{ worker.id }}/"
+                       class="text-decoration-none">
+
+                        <div class="card h-100 border-start border-5"
+                             style="border-color:#6f42c1 !important;">
+
+                            <div class="card-body text-center">
+
+                                <h6>Current Orders</h6>
+
+                                <h2 class="fw-bold text-primary">
+
+                                    {{ worker.current_count }}
+
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                <div class="col-12 col-md-4">
+
+                    <a href="/completed_order/{{ worker.id }}/"
+                       class="text-decoration-none">
+
+                        <div class="card h-100 border-start border-5"
+                             style="border-color:#6f42c1 !important;">
+
+                            <div class="card-body text-center">
+
+                                <h6>Completed Orders</h6>
+
+                                <h2 class="fw-bold text-primary">
+
+                                    {{ worker.completed_count }}
+
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
             </div>
+
+            <!-- Orders Table -->
+
+            {% if worker.assigned_work_set.all %}
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead style="background:#6f42c1; color:white;">
+
+                        <tr>
+
+                            <th>Saree Name</th>
+                            <th>Quantity</th>
+                            <th>Delivery Date</th>
+                            <th>Priority</th>
+                            <th>Work Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for work in worker.assigned_work_set.all %}
+
+                        <tr>
+
+                            <td>{{ work.preorder.saree }}</td>
+
+                            <td>{{ work.preorder.quantity }}</td>
+
+                            <td>{{ work.preorder.delivery_date }}</td>
+
+                            <td>
+
+                                {% if work.preorder.priority == 'High' %}
+
+                                    <span class="text-danger fw-bold">
+                                        High
+                                    </span>
+
+                                {% elif work.preorder.priority == 'Medium' %}
+
+                                    <span class="text-warning fw-bold">
+                                        Medium
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="text-success fw-bold">
+                                        Low
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+
+                                {% if work.work_status == 'Pending' %}
+
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+
+                                {% elif work.work_status == 'Completed' %}
+
+                                    <span class="badge bg-success">
+                                        Completed
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="badge bg-primary">
+                                        In Progress
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="alert alert-secondary text-center">
+
+                No Orders Assigned
+
+            </div>
+
+            {% endif %}
 
         </div>
-
-        <!-- ORDER STATS -->
-
-        <div class="stats-container">
-
-            <!-- TOTAL ORDERS -->
-         <a href="/worker_order/{{ worker.id }}/"
-            style="text-decoration:none; flex:1; min-width:180px;">
-
-            <div class="stat-box">
-
-                <h3>Total Assigned Orders</h3>
-
-                <p>
-
-                    {{ worker.total_count }}
-
-                </p>
-
-            </div>
-        </a>
-
-            <!-- CURRENT ORDERS -->
-
-        <a href="/current_order/{{ worker.id }}/"
-           style="text-decoration:none; flex:1; min-width:180px;">
-
-            <div class="stat-box">
-
-                <h3>Current Orders</h3>
-
-                <p>
-
-                    {{ worker.current_count }}
-
-                </p>
-
-            </div>
-        </a>
-
-            <!-- COMPLETED ORDERS -->
-        <a href="/completed_order/{{ worker.id }}/"
-           style="text-decoration:none; flex:1; min-width:180px;">
-
-    
-            <div class="stat-box">
-
-                <h3>Completed Orders</h3>
-
-                <p>
-
-                    {{ worker.completed_count }}
-
-                </p>
-
-            </div>
-        </a>
-
-        </div>
-
-        <!-- ORDER TABLE -->
-
-        {% if worker.assigned_work_set.all %}
-
-        <table>
-
-            <tr>
-
-                <th>Saree Name</th>
-
-                <th>Quantity</th>
-
-                <th>Delivery Date</th>
-
-                <th>Priority</th>
-
-                <th>Work Status</th>
-
-            </tr>
-
-            {% for work in worker.assigned_work_set.all %}
-
-            <tr>
-
-                <!-- SAREE -->
-
-                <td>
-
-                    {{ work.preorder.saree }}
-
-                </td>
-
-                <!-- QUANTITY -->
-
-                <td>
-
-                    {{ work.preorder.quantity }}
-
-                </td>
-
-                <!-- DELIVERY DATE -->
-
-                <td>
-
-                    {{ work.preorder.delivery_date }}
-
-                </td>
-
-                <!-- PRIORITY -->
-
-                <td>
-
-                    {% if work.preorder.priority == 'High' %}
-
-                        <span class="priority-high">
-
-                            High
-
-                        </span>
-
-                    {% elif work.preorder.priority == 'Medium' %}
-
-                        <span class="priority-medium">
-
-                            Medium
-
-                        </span>
-
-                    {% else %}
-
-                        <span class="priority-low">
-
-                            Low
-
-                        </span>
-
-                    {% endif %}
-
-                </td>
-
-                <!-- WORK STATUS -->
-
-                <td>
-
-                    {% if work.work_status == 'Pending' %}
-
-                        <span class="status pending">
-
-                            Pending
-
-                        </span>
-
-                    {% elif work.work_status == 'Completed' %}
-
-                        <span class="status completed">
-
-                            Completed
-
-                        </span>
-
-                    {% else %}
-
-                        <span class="status inprogress">
-
-                            In Progress
-
-                        </span>
-
-                    {% endif %}
-
-                </td>
-
-            </tr>
-
-            {% endfor %}
-
-        </table>
-
-        {% else %}
-
-        <div class="empty-box">
-
-            No Orders Assigned
-
-        </div>
-
-        {% endif %}
 
     </div>
 
@@ -422,6 +235,6 @@
 
 </div>
 
-</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-</html>
+</body>

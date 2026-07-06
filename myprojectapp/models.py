@@ -8,10 +8,10 @@ from django.db import models
 class Worker(models.Model):
 
     WORK_CHOICES = (
-        ('designer', 'Designer'),
-        ('tailor', 'Tailor'),
-        ('embroidery', 'Embroidery'),
-        ('packing', 'Packing'),
+        ('cutwork/Embroidary', 'cutwork/Embroidary'),
+        ('Handwork/Applique', 'Handwork/Applique'),
+        ('Readymade', 'Readymade'),
+        
     )
 
     name = models.CharField(max_length=100)
