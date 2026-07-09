@@ -80,7 +80,7 @@ urlpatterns = [
     path('current_order/<int:id>/',views.current_order,name='current_order'),
     path('completed_order/<int:id>/',views.completed_order,name='completed_order'),
     path('completed_ordert/<int:id>/',views.completed_ordert,name='completed_ordert'),
-    path('editworker/<int:id>/', views.editworker),
+    path('editworker/<int:id>/', views.editworker,name='editworker'),
     path('update_worker/<int:id>/', views.update_worker),
     path('delete_worker/<int:id>/', views.delete_worker),
 
