@@ -477,3 +477,26 @@ def completed_ordert(request, id):
     work.save()
 
     return redirect('/completedorders/')
+
+def editworker(request, id):
+
+    worker = Worker.objects.get(id=id)
+    return render(request, 'editworker.html', {'worker': worker})
+
+def update_worker(request, id):
+    worker = Worker.objects.get(id=id)
+
+    worker.name = request.POST['name']
+    worker.phone = request.POST['phone']
+    worker.address = request.POST['address']
+    worker.work_type = request.POST['work_type']
+    worker.personal_id = request.POST['personal_id']
+    worker.salary = request.POST['salary']
+
+    worker.save()
+
+    return redirect('/workers/')
+
+def delete_worker(request, id):
+    Worker.objects.get(id=id).delete()
+    return redirect('/workers/')

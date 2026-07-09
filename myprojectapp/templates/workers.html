@@ -162,6 +162,7 @@
                         <th>Work Type</th>
                         <th>Personal ID</th>
                         <th>Salary</th>
+                        <th>Action</th>
 
                     </tr>
 
@@ -198,6 +199,21 @@
                                 ₹ {{ i.salary }}
 
                             </span>
+
+                        </td>
+
+                         <td>
+
+                             <a href="/edit_worker/{{ i.id }}/"
+                                class="btn btn-warning btn-sm me-2">
+                                 Edit
+                             </a>
+
+                             <a href="/delete_worker/{{ i.id }}/"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Are you sure you want to delete this worker?');">
+                                Delete
+                            </a>
 
                         </td>
 
