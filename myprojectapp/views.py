@@ -80,7 +80,7 @@ def assign_workeraction(request):
     pe = request.POST['personal_id']
     sa = request.POST['salary']
     
-    sql = "insert into myprojectapp_worker(name,phone,address,work_type,salary,personal_id) values('%s','%s','%s','%s','%s','%s')" % (na, ph, ad, wo, pe, sa)
+    sql = "insert into myprojectapp_worker(name,phone,address,work_type,personal_id,salary) values('%s','%s','%s','%s','%s','%s')" % (na, ph, ad, wo, pe, sa)
 
     cursor.execute(sql)
 
