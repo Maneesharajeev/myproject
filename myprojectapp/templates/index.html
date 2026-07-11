@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fabroses Saree Prebooking System</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#6f42c1;
+}
+
+.navbar-brand{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.navbar-brand:hover{
+    color:white;
+}
+
+.nav-link{
+    color:white !important;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+/* Hero */
+
+.hero{
+
+    height:90vh;
+
+    background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+    url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    color:white;
+    font-size:60px;
+    font-weight:bold;
+}
+
+.hero p{
+    color:white;
+    font-size:22px;
+}
+
+.btn-book{
+    background:#6f42c1;
+    color:white;
+    padding:14px 40px;
+    font-size:18px;
+}
+
+.btn-book:hover{
+    background:#5a32a3;
+    color:white;
+}
+
+/* Sections */
+
+.section-title{
+
+    text-align:center;
+    color:#6f42c1;
+    margin-bottom:50px;
+    font-weight:bold;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.card img{
+    height:320px;
+    object-fit:cover;
+}
+
+footer{
+
+    background:#6f42c1;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<a class="navbar-brand" href="#">Fabroses</a>
+
+<button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#about">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#collection">Collection</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link btn btn-light text-dark ms-3 px-3" href="/login/">
+Admin Login
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div>
+
+<h1>Elegant Sarees for Every Occasion</h1>
+
+<p>Prebook your favourite designer sarees before everyone else.</p>
+
+<a href="/preorder/" class="btn btn-book mt-3">
+Prebook Now
+</a>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section class="container py-5" id="about">
+
+<h2 class="section-title">About Fabroses</h2>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<p style="font-size:18px;line-height:35px;">
+
+Fabroses brings together elegance, tradition, and modern fashion.
+Our sarees are handcrafted with premium fabrics and beautiful embroidery.
+Customers can browse our exclusive collections and prebook their favourite designs before launch.
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=80"
+class="img-fluid rounded">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Collection -->
+
+<section class="container py-5" id="collection">
+
+<h2 class="section-title">Featured Collection</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80">
+
+<div class="card-body">
+
+<h4>Bridal Sarees</h4>
+
+<p>Luxury bridal silk collection.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1602810319428-019690571b5b?auto=format&fit=crop&w=700&q=80">
+
+<div class="card-body">
+
+<h4>Designer Sarees</h4>
+
+<p>Exclusive party wear collection.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1618244972963-dbad68f8db76?auto=format&fit=crop&w=700&q=80">
+
+<div class="card-body">
+
+<h4>Traditional Sarees</h4>
+
+<p>Elegant handcrafted collections.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Why Choose -->
+
+<section class="container py-5">
+
+<h2 class="section-title">Why Choose Fabroses?</h2>
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<h3>✔</h3>
+
+<h5>Premium Quality</h5>
+
+</div>
+
+<div class="col-md-3">
+
+<h3>🚚</h3>
+
+<h5>Fast Delivery</h5>
+
+</div>
+
+<div class="col-md-3">
+
+<h3>💜</h3>
+
+<h5>Trusted Brand</h5>
+
+</div>
+
+<div class="col-md-3">
+
+<h3>📞</h3>
+
+<h5>24×7 Support</h5>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section class="container py-5" id="contact">
+
+<h2 class="section-title">Contact Us</h2>
+
+<div class="text-center">
+
+<h5>📍 Fabroses Sarees</h5>
+
+<p>Kochi, Kerala</p>
+
+<p>📞 +91 9876543210</p>
+
+<p>✉ info@fabroses.com</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<h5>© 2026 Fabroses Saree Prebooking System</h5>
+
+<p>Designed with ❤️ using Django & Bootstrap</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
