@@ -3,119 +3,273 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fabroses Saree Prebooking System</title>
+    <title>Fabroses | Internal Tracking System</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+    <style>
 
-body{
-    background:#f8f9fa;
-}
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
 
-/* Navbar */
+        body{
 
-.navbar{
-    background:#6f42c1;
-}
+            background:#f4f6f9;
 
-.navbar-brand{
-    color:white;
-    font-size:28px;
-    font-weight:bold;
-}
+        }
 
-.navbar-brand:hover{
-    color:white;
-}
+        /*================ NAVBAR ================*/
 
-.nav-link{
-    color:white !important;
-    margin-left:20px;
-    font-weight:bold;
-}
+        .navbar{
 
-/* Hero */
+            background:#6f42c1;
 
-.hero{
+            box-shadow:0 3px 10px rgba(0,0,0,.15);
 
-    height:90vh;
+        }
 
-    background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-    url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80");
+        .navbar-brand{
 
-    background-size:cover;
-    background-position:center;
+            color:#fff !important;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+            font-size:28px;
 
-.hero h1{
-    color:white;
-    font-size:60px;
-    font-weight:bold;
-}
+            font-weight:bold;
 
-.hero p{
-    color:white;
-    font-size:22px;
-}
+        }
 
-.btn-book{
-    background:#6f42c1;
-    color:white;
-    padding:14px 40px;
-    font-size:18px;
-}
+        /*================ HERO ================*/
 
-.btn-book:hover{
-    background:#5a32a3;
-    color:white;
-}
+        .hero{
 
-/* Sections */
+            min-height:90vh;
 
-.section-title{
+            display:flex;
 
-    text-align:center;
-    color:#6f42c1;
-    margin-bottom:50px;
-    font-weight:bold;
-}
+            align-items:center;
 
-.card{
-    border:none;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
-}
+            background:linear-gradient(135deg,#6f42c1,#8e5ce6);
 
-.card img{
-    height:320px;
-    object-fit:cover;
-}
+            color:white;
 
-footer{
+            padding:60px 0;
 
-    background:#6f42c1;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
+        }
 
-</style>
+        .hero h1{
+
+            font-size:55px;
+
+            font-weight:bold;
+
+        }
+
+        .hero h3{
+
+            margin-top:15px;
+
+            font-weight:300;
+
+        }
+
+        .hero p{
+
+            font-size:18px;
+
+            margin-top:25px;
+
+            line-height:32px;
+
+        }
+
+        /*================ BUTTONS ================*/
+
+        .btn-login{
+
+            padding:15px 35px;
+
+            font-size:18px;
+
+            font-weight:bold;
+
+            border-radius:50px;
+
+            transition:.3s;
+
+            margin:10px;
+
+        }
+
+        .btn-admin{
+
+            background:white;
+
+            color:#6f42c1;
+
+        }
+
+        .btn-admin:hover{
+
+            background:#ece3ff;
+
+            color:#6f42c1;
+
+            transform:translateY(-3px);
+
+        }
+
+        .btn-worker{
+
+            background:#ffc107;
+
+            color:#000;
+
+        }
+
+        .btn-worker:hover{
+
+            background:#ffca2c;
+
+            transform:translateY(-3px);
+
+        }
+
+        /*================ IMAGE ================*/
+
+        .hero img{
+
+            width:100%;
+
+            max-width:500px;
+
+        }
+
+        /*================ CARDS ================*/
+
+        .feature-section{
+
+            padding:80px 0;
+
+        }
+
+        .feature-card{
+
+            background:#fff;
+
+            border-radius:15px;
+
+            padding:35px 20px;
+
+            text-align:center;
+
+            transition:.3s;
+
+            box-shadow:0 0 12px rgba(0,0,0,.08);
+
+            height:100%;
+
+        }
+
+        .feature-card:hover{
+
+            transform:translateY(-8px);
+
+        }
+
+        .feature-card i{
+
+            font-size:50px;
+
+            color:#6f42c1;
+
+            margin-bottom:20px;
+
+        }
+
+        .feature-card h4{
+
+            font-weight:bold;
+
+            color:#6f42c1;
+
+        }
+
+        /*================ FOOTER ================*/
+
+        footer{
+
+            background:#6f42c1;
+
+            color:white;
+
+            text-align:center;
+
+            padding:25px;
+
+            margin-top:40px;
+
+        }
+
+        /*================ RESPONSIVE ================*/
+
+        @media(max-width:992px){
+
+            .hero{
+
+                text-align:center;
+
+            }
+
+            .hero h1{
+
+                font-size:42px;
+
+            }
+
+            .hero img{
+
+                margin-top:40px;
+
+            }
+
+        }
+
+        @media(max-width:576px){
+
+            .hero h1{
+
+                font-size:32px;
+
+            }
+
+            .hero h3{
+
+                font-size:20px;
+
+            }
+
+            .btn-login{
+
+                width:100%;
+
+                margin-bottom:15px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -125,154 +279,152 @@ footer{
 
 <nav class="navbar navbar-expand-lg">
 
-<div class="container">
+    <div class="container">
 
-<a class="navbar-brand" href="#">Fabroses</a>
+        <a class="navbar-brand" href="#">
+            FABROSES
+        </a>
 
-<button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse" id="menu">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item">
-<a class="nav-link" href="#">Home</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="#about">About</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="#collection">Collection</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="#contact">Contact</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link btn btn-light text-dark ms-3 px-3" href="/login/">
-Admin Login
-</a>
-</li>
-
-</ul>
-
-</div>
-
-</div>
+    </div>
 
 </nav>
 
-<!-- Hero -->
+<!-- Hero Section -->
 
 <section class="hero">
 
-<div>
+<div class="container">
 
-<h1>Elegant Sarees for Every Occasion</h1>
+<div class="row align-items-center">
 
-<p>Prebook your favourite designer sarees before everyone else.</p>
+<div class="col-lg-6">
 
-<a href="/preorder/" class="btn btn-book mt-3">
-Prebook Now
+<h1>Fabroses</h1>
+
+<h3>Saree Prebooking System</h3>
+
+<p>
+
+Internal Tracking & Management System for monitoring workers,
+orders, production status and saree prebooking.
+
+</p>
+
+<div class="mt-4">
+
+<a href="/adminlogin/" class="btn btn-login btn-admin">
+
+<i class="bi bi-person-lock"></i>
+
+Admin Login
+
 </a>
+
+<a href="/workerlogin/" class="btn btn-login btn-worker">
+
+<i class="bi bi-person-workspace"></i>
+
+Worker Login
+
+</a>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2620/2620994.png" class="img-fluid">
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- About -->
+<!-- Features -->
 
-<section class="container py-5" id="about">
+<section class="feature-section">
 
-<h2 class="section-title">About Fabroses</h2>
+<div class="container">
 
-<div class="row">
+<h2 class="text-center mb-5 fw-bold text-purple" style="color:#6f42c1;">
 
-<div class="col-md-6">
+System Features
 
-<p style="font-size:18px;line-height:35px;">
+</h2>
 
-Fabroses brings together elegance, tradition, and modern fashion.
-Our sarees are handcrafted with premium fabrics and beautiful embroidery.
-Customers can browse our exclusive collections and prebook their favourite designs before launch.
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="feature-card">
+
+<i class="bi bi-people-fill"></i>
+
+<h4>Worker Management</h4>
+
+<p>
+
+Add, Edit, Delete and Maintain Worker Details.
 
 </p>
 
 </div>
 
-<div class="col-md-6">
+</div>
 
-<img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=80"
-class="img-fluid rounded">
+<div class="col-lg-3 col-md-6">
+
+<div class="feature-card">
+
+<i class="bi bi-box-seam"></i>
+
+<h4>Order Tracking</h4>
+
+<p>
+
+Track customer preorder status efficiently.
+
+</p>
 
 </div>
 
 </div>
 
-</section>
+<div class="col-lg-3 col-md-6">
 
-<!-- Collection -->
+<div class="feature-card">
 
-<section class="container py-5" id="collection">
+<i class="bi bi-scissors"></i>
 
-<h2 class="section-title">Featured Collection</h2>
+<h4>Production</h4>
 
-<div class="row">
+<p>
 
-<div class="col-md-4">
+Assign saree work and monitor production.
 
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80">
-
-<div class="card-body">
-
-<h4>Bridal Sarees</h4>
-
-<p>Luxury bridal silk collection.</p>
+</p>
 
 </div>
 
 </div>
 
-</div>
+<div class="col-lg-3 col-md-6">
 
-<div class="col-md-4">
+<div class="feature-card">
 
-<div class="card">
+<i class="bi bi-bar-chart-fill"></i>
 
-<img src="https://images.unsplash.com/photo-1602810319428-019690571b5b?auto=format&fit=crop&w=700&q=80">
+<h4>Reports</h4>
 
-<div class="card-body">
+<p>
 
-<h4>Designer Sarees</h4>
+Generate reports and monitor system activity.
 
-<p>Exclusive party wear collection.</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1618244972963-dbad68f8db76?auto=format&fit=crop&w=700&q=80">
-
-<div class="card-body">
-
-<h4>Traditional Sarees</h4>
-
-<p>Elegant handcrafted collections.</p>
+</p>
 
 </div>
 
@@ -284,75 +436,29 @@ class="img-fluid rounded">
 
 </section>
 
-<!-- Why Choose -->
-
-<section class="container py-5">
-
-<h2 class="section-title">Why Choose Fabroses?</h2>
-
-<div class="row text-center">
-
-<div class="col-md-3">
-
-<h3>✔</h3>
-
-<h5>Premium Quality</h5>
-
-</div>
-
-<div class="col-md-3">
-
-<h3>🚚</h3>
-
-<h5>Fast Delivery</h5>
-
-</div>
-
-<div class="col-md-3">
-
-<h3>💜</h3>
-
-<h5>Trusted Brand</h5>
-
-</div>
-
-<div class="col-md-3">
-
-<h3>📞</h3>
-
-<h5>24×7 Support</h5>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Contact -->
-
-<section class="container py-5" id="contact">
-
-<h2 class="section-title">Contact Us</h2>
-
-<div class="text-center">
-
-<h5>📍 Fabroses Sarees</h5>
-
-<p>Kochi, Kerala</p>
-
-<p>📞 +91 9876543210</p>
-
-<p>✉ info@fabroses.com</p>
-
-</div>
-
-</section>
+<!-- Footer -->
 
 <footer>
 
-<h5>© 2026 Fabroses Saree Prebooking System</h5>
+<h5>Fabroses Saree Prebooking System</h5>
 
-<p>Designed with ❤️ using Django & Bootstrap</p>
+<p>
+
+Internal Tracking & Management System
+
+</p>
+
+<p>
+
+Built with ❤️ using Django • Bootstrap • PostgreSQL
+
+</p>
+
+<p>
+
+© 2026 Fabroses Pvt. Ltd.
+
+</p>
 
 </footer>
 
