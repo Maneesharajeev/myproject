@@ -16,6 +16,9 @@ def get_data(request):
 def home(request):
     return render(request, 'home.html')
 
+def index(request):
+    return render(request, 'index.html')
+
 
 def preorder(request):
    return render(request, 'preorder.html')

@@ -43,9 +43,13 @@ from django.urls import path
 from myprojectapp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+     path('admin/', admin.site.urls),
 
-    path('', views.home),
+    # Open index.html first
+    path('', views.index, name='index'),
+
+    # Home page
+    path('home/', views.home, name='home'),
 
     path('preorder/', views.preorder),
     path('preorderaction/', views.preorderaction),
