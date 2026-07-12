@@ -97,65 +97,45 @@ def worker(request):
 
     return render(request, 'workers.html', {'data': data})
 
+from django.shortcuts import render, get_object_or_404
+from .models import Worker, customer, Assigned_Work
 
 def workers(request, id):
 
-    preorder = customer.objects.get(id=id)
+    preorder = get_object_or_404(customer, id=id)
 
-    data = Worker.objects.all()
-
-    cursor = connection.cursor()
-
-    sql = """
-    SELECT
-        w.id,
-        w.name,
-        w.phone,
-        COALESCE(COUNT(DISTINCT a.preorder_id), 0) AS current_orders
-
-    FROM myprojectapp_worker w
-
-    LEFT JOIN myprojectapp_assigned_work a
-    ON w.id = a.worker_id
-
-    GROUP BY
-        w.id,
-        w.name,
-        w.phone
-
-    ORDER BY current_orders ASC
-    """
-
-    cursor.execute(sql)
-
-    workers = cursor.fetchall()
+    workers = Worker.objects.all()
 
     data = []
 
-    for i in workers:
+    for worker in workers:
 
-        row = {
-            'id': i[0],
-            'name': i[1],
-            'phone': i[2],
-            'current_orders': i[3] if i[3] else 0
-        }
+        pending = Assigned_Work.objects.filter(
+            worker=worker,
+            work_status='Pending'
+        ).count()
 
-        data.append(row)
+        progress = Assigned_Work.objects.filter(
+            worker=worker,
+            work_status='In Progress'
+        ).count()
+
+        data.append({
+            'id': worker.id,
+            'name': worker.name,
+            'phone': worker.phone,
+            'pending_works': pending,
+            'progress_works': progress,
+        })
 
     return render(request, 'selectwoker.html', {
         'preorder': preorder,
-        'data': data
+        'data': data,
     })
 
 from django.shortcuts import redirect
 
 from .models import customer, Worker, Assigned_Work
-
-def assign(request):
-    data=Assigned_Work.objects.all()
-    return render(request, 'selectwoker.html', {'data': data})
-
 
 
 
@@ -166,56 +146,47 @@ from django.db import connection
 
 # SHOW SELECT WORKER PAGE
 
-def select_worker(request, id):
+from django.shortcuts import render, get_object_or_404
+from django.db.models import Count, Q
 
-    # Get preorder/customer details
+from .models import Worker, customer
+
+from .models import Worker, Assigned_Work, customer
+
+
+def selectwoker(request, id):
+
     preorder = get_object_or_404(customer, id=id)
 
-    cursor = connection.cursor()
-
-    sql = """
-    SELECT
-        w.id,
-        w.name,
-        w.phone,
-
-        COALESCE(COUNT(DISTINCT a.preorder_id), 0) AS current_orders
-    FROM myprojectapp_worker w
-
-    LEFT JOIN myprojectapp_assigned_work a
-    ON w.id = a.worker_id
-
-    GROUP BY
-        w.id,
-        w.name,
-        w.phone
-
-    ORDER BY current_orders ASC
-    """
-
-    cursor.execute(sql)
-
-    workers = cursor.fetchall()
+    workers = Worker.objects.all()
 
     data = []
 
-    for i in workers:
+    for worker in workers:
 
-        row = {
-            'id': i[0],
-            'name': i[1],
-            'phone': i[2],
-            'current_orders': i[3] if i[3] else 0
-        }
+        pending = Assigned_Work.objects.filter(
+            worker=worker,
+            work_status='Pending'
+        ).count()
 
-        data.append(row)
+        progress = Assigned_Work.objects.filter(
+            worker=worker,
+            work_status='In Progress'
+        ).count()
 
-    context = {
+        data.append({
+            'id': worker.id,
+            'name': worker.name,
+            'phone': worker.phone,
+            'pending_works': pending,
+            'progress_works': progress,
+        })
+
+    return render(request, 'selectwoker.html', {
         'preorder': preorder,
-        'data': data
-    }
+        'data': data,
+    })
 
-    return render(request, 'selectwoker.html', context)
 
 
 # ASSIGN ORDER TO WORKER
@@ -241,7 +212,7 @@ def assign_order(request, customer_id, worker_id):
             
         )
 
-    return redirect(f'/select_worker/{customer_id}/')
+    return redirect(f'/selectwoker/{customer_id}/')
 
 
 
@@ -345,7 +316,7 @@ def accept_order(request, id):
 
     return redirect('/worker_dashboard/')
 
-def completed_order(request, id):
+def completed_orders(request, id):
 
     work = Assigned_Work.objects.get(id=id)
 

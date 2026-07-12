@@ -191,7 +191,7 @@
                 Worker Dashboard
             </h1>
 
-            <a href="/home/" class="btn logout-btn">
+            <a href="/index/" class="btn logout-btn">
                 Logout
             </a>
 
@@ -319,16 +319,11 @@
                             {% endif %}
 
                         </td>
-
                         <td>
-
-                            <a href="/completed_order/{{ work.id }}/"
-                               class="btn complete-btn btn-sm">
-
-                                Completed
-
-                            </a>
-
+                             <a href="{% url 'completed_orders' work.id %}"
+                             class="btn complete-btn btn-sm">
+                                      Completed
+                              </a>
                         </td>
 
                     </tr>

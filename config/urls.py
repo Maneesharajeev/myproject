@@ -50,7 +50,7 @@ urlpatterns = [
 
     # Home page
     path('home/', views.home, name='home'),
-
+    path('index/', views.index, name='index'),
     path('preorder/', views.preorder),
     path('preorderaction/', views.preorderaction),
     path('preorders/', views.preorders),
@@ -66,18 +66,17 @@ urlpatterns = [
     ),
     path('assign_order/',views.assign_order),
     path('assign_order/<int:customer_id>/<int:worker_id>/',views.assign_order,name='assign_order'),
-    path('selectwoker/',views.assign),
-    path(
-    'selectworker/<int:id>/',
-    views.assign),
-   # path('select_worker/<int:id>/', views.select_worker),
-    path('select_worker/<int:id>/', views.select_worker, name='select_worker'),
+    #path('selectwoker/',views.assign),
+    #path('selectworker/<int:id>/',views.assign),
+    #path('selectwoker/<int:id>/', views.select_worker),
+    path('selectwoker/<int:id>/', views.selectwoker, name='selectwoker'),
     path('home/',views.loginaction),
     path('worker_dashboard/',views.worker_dashboard),
     path('loginaction/',views.loginaction,name='loginaction'),
     path('neworders/',views.neworders,name='neworders'),
     path('accept_order/<int:id>/', views.accept_order),
-    path('completed_order/<int:id>/', views.completed_order),
+    path('completed_order/<int:id>/', views.completed_order,name='completed_order'),
+     path('completed_orders/<int:id>/', views.completed_orders,name='completed_orders'),
     path('completedorders/',views.completedorders),
     path('trackorder/',views.trackorder,name='trackorder'),
     path('worker_order/<int:worker_id>/',views.worker_order,name='worker_order'),

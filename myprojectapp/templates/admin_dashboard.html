@@ -100,6 +100,22 @@
             }
 
         }
+            /* Logout Button */
+
+           .logout-btn{
+              background:white;
+              color:#6f42c1;
+              font-weight:bold;
+                border:none;
+              padding:10px 25px;
+             border-radius:8px;
+              transition:.3s;
+            }
+
+          .logout-btn:hover{
+              background:#ece3ff;
+             color:#6f42c1;
+           }
 
     </style>
 
@@ -111,13 +127,29 @@
 
     <!-- Header -->
 
-    <div class="header mb-5">
+    
 
-        <h1>Fabroses Saree Prebooking System</h1>
+<div class="header mb-5">
 
-        <p>Admin Dashboard</p>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+
+        <div>
+
+            <h1>Fabroses Saree Prebooking System</h1>
+
+            <p>Admin Dashboard</p>
+
+        </div>
+
+        <a href="/index/" class="btn logout-btn mt-3 mt-md-0">
+
+            Logout
+
+        </a>
 
     </div>
+
+</div>
 
     <!-- Dashboard Grid -->
 
